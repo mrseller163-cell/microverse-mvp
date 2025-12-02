@@ -1,0 +1,51 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #0b0014;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+.bg-cosmic-black {
+  background: linear-gradient(135deg, #0b0014 0%, #1a0033 100%);
+}
+.bg-cosmic-gradient {
+  background: linear-gradient(45deg, #ff006e, #8a2be2, #00f5ff);
+  background-size: 300%;
+  animation: gradient 8s ease infinite;
+}
+@keyframes gradient {
+  0%,100% {background-position:0% 50%}
+  50% {background-position:100% 50%}
+}
+
+.stars {
+  background: transparent url('/stars.png') repeat;
+  animation: moveStars 60s linear infinite;
+}
+@keyframes moveStars {
+  from {background-position:0 0;}
+  to {background-position:-10000px 5000px;}
+}
+
+.glass {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.pulse-neon { animation: pulse 2s infinite; }
+@keyframes pulse {
+  0%,100% {box-shadow: 0 0 20px #ff006e}
+  50% {box-shadow: 0 0 40px #00f5ff}
+}
+
+.canvas-wrap {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(124,58,237,0.6);
+}
+

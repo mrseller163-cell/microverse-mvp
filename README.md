@@ -9,6 +9,7 @@
 | **Grok**      | Idea generator and alternative thinker. Great for brainstorming, unconventional approaches, and hypothesis testing. |
 | **DeepSeek**  | Analyst and optimizer. Strong in deep analysis, algorithmic improvements, bottleneck detection, and performance tuning. |
 | **ChatGPT**   | Refactoring assistant. Excellent at error removal, code cleanup, and readability improvements. Useful for debugging and rewriting complex sections. |
+| **Qwen**      | Full-cycle collaborator. Integrates all roles on demand: defines tasks (Oleg), delivers canonical fixes (Copilot), generates alternatives (Grok), analyzes deeply (DeepSeek), and refactors (ChatGPT). Acts as unified agent for end-to-end feature delivery. |
 
 ---
 

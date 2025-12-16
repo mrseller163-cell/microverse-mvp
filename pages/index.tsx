@@ -7,9 +7,27 @@ import { translations } from "../lib/translations";
 export default function Home() {
   const [lang, setLang] = useState<"en" | "ru">("en");
   const [games] = useState([
-    { id: "1", title: "Neon Hack", author: "Ry0", plays: 247, color: "from-pink-500 to-purple-600" },
-    { id: "2", title: "Data Storm", author: "N3K0", plays: 189, color: "from-blue-400 to-cyan-500" },
-    { id: "3", title: "Void Runner", author: "A1X", plays: 93, color: "from-green-400 to-yellow-500" }
+    {
+      id: "1",
+      title: "Neon Hack",
+      author: "Ry0",
+      plays: 247,
+      color: "from-pink-500 to-purple-600",
+    },
+    {
+      id: "2",
+      title: "Data Storm",
+      author: "N3K0",
+      plays: 189,
+      color: "from-blue-400 to-cyan-500",
+    },
+    {
+      id: "3",
+      title: "Void Runner",
+      author: "A1X",
+      plays: 93,
+      color: "from-green-400 to-yellow-500",
+    },
   ]);
 
   useEffect(() => {
@@ -34,9 +52,24 @@ export default function Home() {
           <div className="flex items-center space-x-6">
             <LanguageSwitcher />
             <div className="flex space-x-6 text-sm font-light uppercase tracking-wider">
-              <Link href="/gallery" className="text-cyan-300 hover:text-pink-400 transition-colors duration-300">{t("gallery")}</Link>
-              <Link href="/editor" className="text-cyan-300 hover:text-pink-400 transition-colors duration-300">{t("create")}</Link>
-              <Link href="/about" className="text-cyan-300 hover:text-pink-400 transition-colors duration-300">{t("about")}</Link>
+              <Link
+                href="/gallery"
+                className="text-cyan-300 hover:text-pink-400 transition-colors duration-300"
+              >
+                {t("gallery")}
+              </Link>
+              <Link
+                href="/editor"
+                className="text-cyan-300 hover:text-pink-400 transition-colors duration-300"
+              >
+                {t("create")}
+              </Link>
+              <Link
+                href="/about"
+                className="text-cyan-300 hover:text-pink-400 transition-colors duration-300"
+              >
+                {t("about")}
+              </Link>
             </div>
           </div>
         </div>
@@ -45,7 +78,9 @@ export default function Home() {
       <section className="relative overflow-hidden bg-gradient-to-b from-black via-purple-900/20 to-black">
         <div className="container mx-auto px-6 py-36 text-center relative z-10">
           <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight">
-            <span className="block text-cyan-400 animate-pulse">{t("heroTitle1")}</span>
+            <span className="block text-cyan-400 animate-pulse">
+              {t("heroTitle1")}
+            </span>
             <span className="block text-pink-400">{t("heroTitle2")}</span>
             <span className="block text-yellow-400">{t("heroTitle3")}</span>
           </h1>
@@ -58,7 +93,9 @@ export default function Home() {
                 <span className="flex items-center space-x-3">
                   <span>🖥️</span>
                   <span>{t("codeNow")}</span>
-                  <span className="group-hover:translate-x-2 transition-transform">→</span>
+                  <span className="group-hover:translate-x-2 transition-transform">
+                    →
+                  </span>
                 </span>
               </button>
             </Link>
@@ -71,16 +108,28 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="text-center p-6 bg-black/60 rounded-lg border border-cyan-400/30 hover:border-cyan-400/70 transition-all duration-500 hover:scale-105 backdrop-blur-sm">
-              <div className="text-4xl font-black text-cyan-400 mb-2 animate-pulse">500+</div>
-              <div className="text-gray-400 text-sm tracking-wide">{t("codersOnline")}</div>
+              <div className="text-4xl font-black text-cyan-400 mb-2 animate-pulse">
+                500+
+              </div>
+              <div className="text-gray-400 text-sm tracking-wide">
+                {t("codersOnline")}
+              </div>
             </div>
             <div className="text-center p-6 bg-black/60 rounded-lg border border-pink-400/30 hover:border-pink-400/70 transition-all duration-500 hover:scale-105 backdrop-blur-sm">
-              <div className="text-4xl font-black text-pink-400 mb-2 animate-pulse">2K+</div>
-              <div className="text-gray-400 text-sm tracking-wide">{t("neonGames")}</div>
+              <div className="text-4xl font-black text-pink-400 mb-2 animate-pulse">
+                2K+
+              </div>
+              <div className="text-gray-400 text-sm tracking-wide">
+                {t("neonGames")}
+              </div>
             </div>
             <div className="text-center p-6 bg-black/60 rounded-lg border border-yellow-400/30 hover:border-yellow-400/70 transition-all duration-500 hover:scale-105 backdrop-blur-sm">
-              <div className="text-4xl font-black text-yellow-400 mb-2 animate-pulse">50K+</div>
-              <div className="text-gray-400 text-sm tracking-wide">{t("playSessions")}</div>
+              <div className="text-4xl font-black text-yellow-400 mb-2 animate-pulse">
+                50K+
+              </div>
+              <div className="text-gray-400 text-sm tracking-wide">
+                {t("playSessions")}
+              </div>
             </div>
           </div>
         </div>
@@ -95,15 +144,25 @@ export default function Home() {
             <div key={game.id} className="group relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative bg-slate-800/80 rounded-3xl overflow-hidden border border-white/10 backdrop-blur-sm">
-                <div className={`h-48 bg-gradient-to-br ${game.color} flex items-center justify-center relative overflow-hidden`}>
-                  <div className="text-8xl opacity-80 filter drop-shadow-2xl">🎯</div>
+                <div
+                  className={`h-48 bg-gradient-to-br ${game.color} flex items-center justify-center relative overflow-hidden`}
+                >
+                  <div className="text-8xl opacity-80 filter drop-shadow-2xl">
+                    🎯
+                  </div>
                   <div className="absolute inset-0 bg-black/20"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-3 text-white">{game.title}</h3>
-                  <p className="text-gray-300 mb-4 text-lg">{t("author")}: {game.author}</p>
+                  <h3 className="text-2xl font-bold mb-3 text-white">
+                    {game.title}
+                  </h3>
+                  <p className="text-gray-300 mb-4 text-lg">
+                    {t("author")}: {game.author}
+                  </p>
                   <div className="flex justify-between items-center">
-                    <span className="text-cyan-300 font-semibold text-lg">🎮 {game.plays}</span>
+                    <span className="text-cyan-300 font-semibold text-lg">
+                      🎮 {game.plays}
+                    </span>
                     <Link href={`/play?game=${game.id}`}>
                       <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-xl font-semibold transition-all duration-300 hover:scale-105">
                         {t("play")}
@@ -120,9 +179,24 @@ export default function Home() {
       <footer className="bg-black/40 border-t border-white/10 mt-20">
         <div className="container mx-auto px-6 py-12 text-center">
           <div className="flex justify-center space-x-10 mb-6 text-lg">
-            <Link href="/privacy" className="text-gray-400 hover:text-cyan-300 transition-colors font-medium">{t("privacy")}</Link>
-            <Link href="/terms" className="text-gray-400 hover:text-cyan-300 transition-colors font-medium">{t("terms")}</Link>
-            <Link href="/about" className="text-gray-400 hover:text-cyan-300 transition-colors font-medium">{t("about")}</Link>
+            <Link
+              href="/privacy"
+              className="text-gray-400 hover:text-cyan-300 transition-colors font-medium"
+            >
+              {t("privacy")}
+            </Link>
+            <Link
+              href="/terms"
+              className="text-gray-400 hover:text-cyan-300 transition-colors font-medium"
+            >
+              {t("terms")}
+            </Link>
+            <Link
+              href="/about"
+              className="text-gray-400 hover:text-cyan-300 transition-colors font-medium"
+            >
+              {t("about")}
+            </Link>
           </div>
           <p className="text-gray-500 text-lg">{t("copyright")}</p>
         </div>

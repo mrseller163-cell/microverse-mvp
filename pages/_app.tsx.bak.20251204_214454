@@ -1,5 +1,5 @@
 "use client";
-import ConsentBanner from "../components/ConsentBanner";
+
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { LanguageProvider } from "../lib/i18n";
@@ -11,7 +11,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <LanguageProvider>
       <LanguageSwitcher />
       <Component {...pageProps} />
-      <ConsentBanner />
       <Footer />
     </LanguageProvider>
   );

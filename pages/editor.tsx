@@ -1,4 +1,5 @@
-﻿"use client";
+"use client";
+import BackButton from "../components/BackButton";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -20,14 +21,14 @@ export default function Editor() {
       title: "CYBER EDITOR",
       subtitle: "Create your digital masterpiece",
       comingSoon: "Game editor launching from the matrix soon...",
-      back: "← BACK TO REALM"
+      back: "← BACK TO REALM",
     },
     ru: {
       title: "КИБЕР-РЕДАКТОР",
-      subtitle: "Создай свой цифровой шедевр", 
+      subtitle: "Создай свой цифровой шедевр",
       comingSoon: "Редактор игр запускается из матрицы скоро...",
-      back: "← НАЗАД В РЕАЛЬНОСТЬ"
-    }
+      back: "← НАЗАД В РЕАЛЬНОСТЬ",
+    },
   };
 
   const current = editorContent[lang];
@@ -38,7 +39,9 @@ export default function Editor() {
         {/* Хедер */}
         <div className="flex justify-between items-center mb-12 border-b border-cyan-400/30 pb-6">
           <div>
-            <h1 className="text-4xl font-black text-cyan-400 tracking-wider mb-2">{current.title}</h1>
+            <h1 className="text-4xl font-black text-cyan-400 tracking-wider mb-2">
+              {current.title}
+            </h1>
             <p className="text-gray-400">{current.subtitle}</p>
           </div>
           <LanguageSwitcher />
@@ -48,9 +51,9 @@ export default function Editor() {
         <div className="text-center py-20">
           <div className="text-6xl mb-6">🖥️</div>
           <p className="text-xl text-gray-300 mb-8">{current.comingSoon}</p>
-          
+
           {/* Кнопка назад */}
-          <button 
+          <button
             onClick={() => router.push("/")}
             className="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-500 hover:to-blue-600 rounded-xl font-bold transition-all duration-300 hover:scale-105 border border-cyan-400/50"
           >
@@ -61,3 +64,5 @@ export default function Editor() {
     </div>
   );
 }
+
+<BackButton />;

@@ -1,161 +1,91 @@
-// app/page.tsx
 "use client";
 
-import { useEffect } from 'react';
+import Link from "next/link";
+import { Search, Plus, Filter, ChevronRight } from "lucide-react";
+
+const categories = [
+  { name: "Продуктивность", count: 142, color: "from-purple-500 to-pink-500" },
+  { name: "Видео & Анимация", count: 98, color: "from-blue-500 to-cyan-500" },
+  { name: "Генерация изображений", count: 87, color: "from-green-500 to-emerald-500" },
+  { name: "Текст и контент", count: 134, color: "from-orange-500 to-red-500" },
+  { name: "Аудио & Музыка", count: 67, color: "from-indigo-500 to-purple-500" },
+  { name: "Код и разработка", count: 112, color: "from-yellow-500 to-amber-500" },
+];
 
 export default function Home() {
-  useEffect(() => {
-    // Анимация фона
-    const body = document.body;
-    let hue = 0;
-    const animateBackground = () => {
-      hue = (hue + 0.5) % 360;
-      body.style.background = `linear-gradient(135deg, hsl(${hue}, 50%, 10%), hsl(${(hue + 30) % 360}, 50%, 10%))`;
-      requestAnimationFrame(animateBackground);
-    };
-    animateBackground();
-  }, []);
-
   return (
-    <>
+    <div className="min-h-screen">
       {/* Hero */}
-      <section style={{
-        textAlign: 'center',
-        paddingTop: '4rem',
-        paddingBottom: '4rem'
-      }}>
-        <h1 style={{
-          fontSize: '4rem',
-          lineHeight: '1.1',
-          marginBottom: '1rem',
-          textShadow: '0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(255, 0, 240, 0.5)',
-          animation: 'glow 1s infinite alternate'
-        }}>
-          <span style={{ color: '#00f0ff' }}>КИБЕР</span><br/>
-          <span style={{ color: '#ff00f0' }}>ИГРЫ</span><br/>
-          <span style={{ color: '#ffff00' }}>ВСЕЛЕННАЯ</span>
-        </h1>
-        <p style={{
-          fontSize: '1rem',
-          marginBottom: '2rem',
-          maxWidth: '600px',
-          margin: '0 auto',
-          color: '#cccccc'
-        }}>
-          Войди в цифровое измерение. Создавай, играй, делись — всё в неоновой матрице.
-        </p>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-          <button style={{
-            padding: '0.75rem 1.5rem',
-            borderRadius: '8px',
-            background: 'linear-gradient(45deg, #00f0ff, #0090ff)',
-            color: '#0c0c14',
-            fontWeight: 'bold',
-            border: 'none',
-            cursor: 'pointer',
-            boxShadow: '0 0 15px rgba(0, 240, 255, 0.5)',
-            animation: 'pulse 2s infinite'
-          }}>
-            💻 КОДИРОВАТЬ →
-          </button>
-          <button style={{
-            padding: '0.75rem 1.5rem',
-            borderRadius: '8px',
-            background: 'transparent',
-            border: '1px solid #ff00f0',
-            color: '#ff00f0',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            boxShadow: '0 0 15px rgba(255, 0, 240, 0.5)',
-            animation: 'pulse 2s infinite 1s'
-          }}>
-            🎮 СМОТРЕТЬ ИГРЫ
-          </button>
+      <section className="relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="text-center">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Microverse
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Открой лучшие AI-инструменты 2025 года. От генерации контента до автоматизации бизнеса — всё в одном месте.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/tools" className="bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transition-transform">
+                Исследовать инструменты
+              </Link>
+              <Link href="/submit" className="border border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-colors">
+                <Plus className="inline w-5 h-5 mr-2" />
+                Добавить инструмент
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section style={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '2rem',
-        padding: '2rem',
-        flexWrap: 'wrap'
-      }}>
-        {[
-          { value: '500+', label: 'КОДЕРОВ ОНЛАЙН' },
-          { value: '2K+', label: 'НЕОНОВЫХ ИГР' },
-          { value: '50K+', label: 'ИГРОВЫХ СЕССИЙ' }
-        ].map((stat, i) => (
-          <div key={i} style={{
-            border: '1px solid #2a2a40',
-            borderRadius: '8px',
-            padding: '1.5rem',
-            textAlign: 'center',
-            minWidth: '200px',
-            background: 'rgba(22, 22, 37, 0.5)',
-            backdropFilter: 'blur(10px)',
-            animation: 'glow 1s infinite alternate',
-            animationDelay: `${i * 0.5}s`
-          }}>
-            <div style={{
-              fontSize: '2rem',
-              fontWeight: 'bold',
-              marginBottom: '0.5rem',
-              color: i === 0 ? '#00f0ff' : i === 1 ? '#ff00f0' : '#ffff00'
-            }}>{stat.value}</div>
-            <div style={{ fontSize: '0.75rem', color: '#aaaaaa' }}>{stat.label}</div>
-          </div>
-        ))}
-      </section>
+      {/* БЕГУЩАЯ ЛЕНТА — В АКТИВНОЙ РАЗРАБОТКЕ */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 py-3">
+        <div className="animate-marquee whitespace-nowrap">
+          <span className="text-white font-bold text-lg mx-8">
+            🛠 В активной разработке — следи за обновлениями! Скоро: персональный AI-куратор, маркетплейс промптов и генератор workflow!
+          </span>
+          <span className="text-white font-bold text-lg mx-8">
+            🛠 В активной разработке — следи за обновлениями! Скоро: персональный AI-куратор, маркетплейс промптов и генератор workflow!
+          </span>
+          <span className="text-white font-bold text-lg mx-8">
+            🛠 В активной разработке — следи за обновлениями! Скоро: персональный AI-куратор, маркетплейс промптов и генератор workflow!
+          </span>
+        </div>
+      </div>
 
-      {/* Game Cards */}
-      <section style={{
-        padding: '4rem 2rem',
-        textAlign: 'center'
-      }}>
-        <h2 style={{
-          fontSize: '1.5rem',
-          marginBottom: '2rem',
-          color: '#00f0ff',
-          textShadow: '0 0 5px rgba(0, 240, 255, 0.5)',
-          animation: 'glow 1s infinite alternate'
-        }}>ТОП КИБЕРПАНК ИГРЫ</h2>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '2rem',
-          flexWrap: 'wrap'
-        }}>
-          {[
-            { name: 'Neon Hack', author: 'Ry0', players: 247, color: 'linear-gradient(45deg, #ff00f0, #9000ff)' },
-            { name: 'Data Storm', author: 'N3K0', players: 189, color: 'linear-gradient(45deg, #00f0ff, #0090ff)' },
-            { name: 'Void Runner', author: 'A1X', players: 93, color: 'linear-gradient(45deg, #00ff00, #ffff00)' }
-          ].map((game, i) => (
-            <div key={i} className="game-card">
-              <div style={{
-                height: '150px',
-                background: game.color,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                🕹️
-              </div>
-              <div className="info">
-                <h3>{game.name}</h3>
-                <p>Автор: {game.author}</p>
-                <div className="stats">
-                  <div>
-                    <span>🎮</span> {game.players}
-                  </div>
-                  <button>ИГРАТЬ</button>
+      {/* Анимация бегущей строки */}
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+        .animate-marquee {
+          display: inline-block;
+          animation: marquee 25s linear infinite;
+        }
+      `}</style>
+
+      {/* Категории */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-3xl font-bold mb-8">Популярные категории</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((cat) => (
+            <Link href={`/categories?cat=${cat.name}`} key={cat.name} className="group">
+              <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-r ${cat.color} p-8 hover:scale-105 transition-transform`}>
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold mb-2">{cat.name}</h3>
+                  <p className="text-white/80">{cat.count} инструментов</p>
                 </div>
+                <ChevronRight className="absolute bottom-4 right-4 w-8 h-8 opacity-60 group-hover:opacity-100 transition-opacity" />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }

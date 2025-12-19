@@ -1,33 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/navigation';
 
 export default function BackButton() {
   const router = useRouter();
-  const [label, setLabel] = useState("Back"); // одинаковый текст на сервере и клиенте
-
-  useEffect(() => {
-    const lang = localStorage.getItem("lang");
-    if (lang === "ru") setLabel("Назад");
-  }, []);
-
   return (
-    <button
+    <button 
       onClick={() => router.back()}
       style={{
-        position: "fixed",
-        top: 16,
-        left: 16,
-        padding: "8px 12px",
-        border: "1px solid #444",
-        background: "#fff",
-        borderRadius: 8,
-        zIndex: 60,
-        cursor: "pointer"
+        position: 'absolute',
+        top: '1rem',
+        left: '1rem',
+        padding: '0.5rem 1rem',
+        borderRadius: '8px',
+        background: 'linear-gradient(45deg, #00f0ff, #0090ff)',
+        color: '#0c0c14',
+        fontWeight: 'bold',
+        border: 'none',
+        cursor: 'pointer',
+        zIndex: 10
       }}
     >
-      ← {label}
+      ← Назад
     </button>
   );
 }

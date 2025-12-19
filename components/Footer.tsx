@@ -1,41 +1,25 @@
-﻿export default function Footer() {
-  const socials = [
-    { name: "Telegram",   icon: "Telegram", url: "https://t.me/microverse_fun" },
-    { name: "Facebook",   icon: "Facebook", url: "https://facebook.com/groups/microverse.fun" },
-    { name: "TikTok",     icon: "TikTok",   url: "https://tiktok.com/@microverse" },
-    { name: "YouTube",    icon: "YouTube",  url: "https://youtube.com/@microverse" },
-    { name: "X",          icon: "X",        url: "https://x.com/microverse_fun" },
-    { name: "VK",         icon: "VK",       url: "https://vk.com/microverse" },
-    { name: "Instagram",  icon: "Instagram",url: "https://instagram.com/microverse.fun" },
-  ];
-
+﻿// components/Footer.tsx
+export default function Footer() {
   return (
-    <footer className="border-t border-cyan-400/20 py-16 mt-32 bg-black/95">
-      <div className="container mx-auto px-6 text-center">
-        <div className="flex flex-wrap justify-center gap-10 mb-10">
-          {socials.map((s) => (
-            <a
-              key={s.name}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative"
-              title={s.name}
-            >
-              <span className="text-4xl transition-all duration-500 group-hover:scale-150 group-hover:drop-shadow-[0_0_30px_currentColor]">
-                {s.icon}
-              </span>
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-xs text-cyan-300 whitespace-nowrap">
-                {s.name}
-              </span>
-            </a>
-          ))}
-        </div>
-        <div className="text-gray-500 text-sm space-x-4">
-          © 2025 MICROVERSE •{" "}
-          <a href="/privacy" className="underline hover:text-cyan-400">Privacy</a> •{" "}
-          <a href="/about" className="underline hover:text-cyan-400">About</a>
-        </div>
+    <footer style={{
+      marginTop: '4rem',
+      borderTop: '1px solid #2a2a40',
+      padding: '2rem',
+      textAlign: 'center',
+      fontSize: '0.75rem',
+      color: '#aaaaaa',
+      background: 'linear-gradient(135deg, #0a021e, #0c0c14)'
+    }}>
+      <div>
+        <a href="https://t.me/microverse_fun" target="_blank" rel="noopener" style={{ margin: '0 0.5rem', color: '#00f0ff' }}>Telegram</a>
+        <a href="https://facebook.com/groups/microverse.fun" target="_blank" rel="noopener" style={{ margin: '0 0.5rem', color: '#00f0ff' }}>Facebook</a>
+        <a href="https://tiktok.com/@microverse" target="_blank" rel="noopener" style={{ margin: '0 0.5rem', color: '#00f0ff' }}>TikTok</a>
+        <a href="https://vk.com/microverse" target="_blank" rel="noopener" style={{ margin: '0 0.5rem', color: '#00f0ff' }}>VK</a>
+      </div>
+      <div style={{ marginTop: '1rem' }}>
+        <a href="/privacy" style={{ margin: '0 0.5rem', color: '#00f0ff' }}>Privacy</a>
+        <a href="/terms" style={{ margin: '0 0.5rem', color: '#00f0ff' }}>Terms</a>
+        <a href="/about" style={{ margin: '0 0.5rem', color: '#00f0ff' }}>About</a>
       </div>
     </footer>
   );

@@ -1,4 +1,3 @@
-// components/layout/Footer.tsx
 "use client";
 
 import { useState } from "react";
@@ -52,6 +51,11 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Навигация</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
+              <li>
+                <Link href="/marketplace" className="hover:text-white">
+                  Marketplace
+                </Link>
+              </li>
               <li>
                 <Link href="/" className="hover:text-purple-300 transition-colors">
                   Главная

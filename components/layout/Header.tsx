@@ -20,6 +20,9 @@ export default function Header() {
             </Link>
             {/* Десктопное меню */}
             <nav className="hidden md:flex space-x-8">
+              <Link href="/marketplace" className="text-gray-700 hover:text-purple-600 font-medium">
+                Marketplace
+              </Link>
               <Link href="/" className="text-gray-700 hover:text-purple-600 font-medium">
                 Главная
               </Link>
@@ -71,6 +74,9 @@ export default function Header() {
                 <X className="w-6 h-6" />
               </button>
               <nav className="mt-16 space-y-4">
+                <Link href="/marketplace" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-700">
+                  Marketplace
+                </Link>
                 <Link href="/" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-700">
                   Главная
                 </Link>

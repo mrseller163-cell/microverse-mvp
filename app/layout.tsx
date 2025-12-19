@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className="bg-gray-950 text-white min-h-screen">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

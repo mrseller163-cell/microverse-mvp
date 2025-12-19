@@ -1,7 +1,9 @@
+// components/layout/Footer.tsx
 "use client";
 
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -36,6 +38,7 @@ export default function Footer() {
     <footer className="bg-black/30 backdrop-blur-md border-t border-white/10 mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Логотип и описание */}
           <div>
             <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Microverse
@@ -44,15 +47,45 @@ export default function Footer() {
               Каталог лучших AI-инструментов 2025 года
             </p>
           </div>
+
+          {/* Навигация */}
           <div>
             <h4 className="font-semibold mb-4">Навигация</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="/" className="hover:text-purple-300 transition-colors">Главная</a></li>
-              <li><a href="/tools" className="hover:text-purple-300 transition-colors">Инструменты</a></li>
-              <li><a href="/categories" className="hover:text-purple-300 transition-colors">Категории</a></li>
-              <li><a href="/submit" className="hover:text-purple-300 transition-colors">Добавить</a></li>
+              <li>
+                <Link href="/" className="hover:text-purple-300 transition-colors">
+                  Главная
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools" className="hover:text-purple-300 transition-colors">
+                  Инструменты
+                </Link>
+              </li>
+              <li>
+                <Link href="/grokmusic" className="hover:text-white transition-colors">
+                  GrokMusic
+                </Link>
+              </li>
+              <li>
+                <Link href="/categories" className="hover:text-purple-300 transition-colors">
+                  Категории
+                </Link>
+              </li>
+              <li>
+                <Link href="/prompts" className="hover:text-purple-300 transition-colors">
+                  Промпты
+                </Link>
+              </li>
+              <li>
+                <Link href="/submit" className="hover:text-purple-300 transition-colors">
+                  Добавить
+                </Link>
+              </li>
             </ul>
           </div>
+
+          {/* Сообщество */}
           <div>
             <h4 className="font-semibold mb-4">Сообщество</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
@@ -61,6 +94,8 @@ export default function Footer() {
               <li><a href="#" className="hover:text-purple-300 transition-colors">Discord</a></li>
             </ul>
           </div>
+
+          {/* Legal */}
           <div>
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-gray-400 text-sm">

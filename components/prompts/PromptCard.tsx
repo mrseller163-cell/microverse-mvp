@@ -1,8 +1,8 @@
-// components/prompts/PromptCard.tsx
 "use client";
 
 import { useState } from "react";
-import { Heart, Bookmark, Share2, Copy, Check } from "lucide-react";
+import { Heart, Bookmark, Copy, Check, MessageCircle } from "lucide-react";
+import Link from "next/link";
 import { Prompt } from "@/lib/prompts";
 import { promptCategories } from "@/lib/categories";
 
@@ -60,13 +60,22 @@ export function PromptCard({ prompt }: { prompt: Prompt }) {
           <img src={prompt.avatar} alt={prompt.author} className="w-6 h-6 rounded-full" />
           <span className="text-sm text-gray-700">{prompt.author}</span>
         </div>
-        <button
-          onClick={copyPrompt}
-          className="flex items-center gap-1 text-gray-500 hover:text-purple-600"
-        >
-          {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-          <span className="text-xs">Копировать</span>
-        </button>
+        <div className="flex gap-3">
+          <button
+            onClick={copyPrompt}
+            className="flex items-center gap-1 text-gray-500 hover:text-purple-600"
+          >
+            {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+            <span className="text-xs">Копировать</span>
+          </button>
+          <Link
+            href={`/prompts/${prompt.id}/chat`}
+            className="flex items-center gap-1 text-purple-600 hover:underline text-xs"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Обсудить
+          </Link>
+        </div>
       </div>
     </div>
   );

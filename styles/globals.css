@@ -1,23 +1,16 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Fira+Code:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    @apply bg-black text-white antialiased;
-  }
+/* Глобальный фикс для полос/оверлеев */
+html, body {
+  line-height: 1.5;
+  overflow-x: hidden;
+  overflow-y: auto;
+  word-break: break-word;
 }
 
-@layer utilities {
-  .text-shadow-glow {
-    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
-  }
-  .backdrop-blur-strong {
-    backdrop-filter: blur(12px);
-  }
+.overlay-fix {
+  pointer-events: none; /* чтобы не мешала кликам */
+  z-index: -10;         /* всегда под текстом */
 }
